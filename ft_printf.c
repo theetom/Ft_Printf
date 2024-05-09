@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: etom <etom@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:25:18 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/09 15:25:19 by toferrei         ###   ########.fr       */
+/*   Updated: 2024/05/10 00:53:30 by etom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,21 @@ int funcao_2 (va_list lst_arg, int prt)
 
 	x = 0;
 	if (prt == 'c')
-		ft_putchar_fd(va_arg(lst_arg, int), 1);
+		ft_putchar_fd_pf(va_arg(lst_arg, int), 1);
 	if (prt == 'i' || prt == 'd')
-		ft_putnbr_base(va_arg(lst_arg, int), "0123456789");
+		ft_putnbr_base_pf(va_arg(lst_arg, int), "0123456789");
+	if (prt == 's')
+		ft_putstr_fd_pf(va_arg(lst_arg, char *), 1);
+	if (prt == 'p')
+	
+	if (prt == 'u')
+
+	if (prt == 'x')
+
+	if (prt == 'X')
+
+	if (prt == '%')
+
 	return (x);
 }
 
@@ -53,7 +65,7 @@ int	ft_printf(const char *str, ...)
 			count += funcao_2(lst_arg, *(++str));
 		else
 		{
-			ft_putchar_fd(*str, 1);
+			ft_putchar_fd_pf(*str, 1);
 			count++;
 		}
 		str++;

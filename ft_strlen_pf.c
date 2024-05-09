@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strlen_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: etom <etom@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 12:33:48 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/09 13:04:45 by toferrei         ###   ########.fr       */
+/*   Created: 2024/04/08 16:08:57 by toferrei          #+#    #+#             */
+/*   Updated: 2024/05/10 00:05:11 by etom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+size_t	ft_strlen_pf(const char *str)
 {
-	write(fd, &c, sizeof(c));
+	unsigned long	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

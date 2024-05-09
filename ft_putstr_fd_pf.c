@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstr_fd_pf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: etom <etom@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 12:44:55 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/09 11:06:05 by toferrei         ###   ########.fr       */
+/*   Updated: 2024/05/10 00:10:54 by etom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd_pf(char *s, int fd)
 {
 	while (*s)
-		ft_putchar_fd(*s++, fd);
+		ft_putchar_fd_pf(*s++, fd);
 }

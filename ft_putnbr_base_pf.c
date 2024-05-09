@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_base_pf.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: etom <etom@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:51:04 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/09 11:05:27 by toferrei         ###   ########.fr       */
+/*   Updated: 2024/05/10 00:10:10 by etom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int	ft_invalid(char *str)
 	return (0);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base_pf(int nbr, char *base)
 {
 	int		b;
 	long	nb;
 
 	nb = nbr;
-	b = ft_strlen(base);
+	b = ft_strlen_pf(base);
 	if (ft_invalid (base) == 1 || b < 1)
 		return ;
 	if (nb < 0)
@@ -48,8 +48,8 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 	if (nb > b - 1)
 	{
-		ft_putnbr_base(nb / b, base);
-		ft_putnbr_base(nb % b, base);
+		ft_putnbr_base_pf(nb / b, base);
+		ft_putnbr_base_pf(nb % b, base);
 	}
 	else
 		write(1, &base[nb], 1);
