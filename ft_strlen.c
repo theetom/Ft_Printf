@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 15:25:05 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/09 15:25:07 by toferrei         ###   ########.fr       */
+/*   Created: 2024/04/08 16:08:57 by toferrei          #+#    #+#             */
+/*   Updated: 2024/05/09 11:05:59 by toferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <string.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
+size_t	ft_strlen(const char *str)
+{
+	unsigned long	i;
 
-int		ft_printf(const char *str, ...);
-size_t	ft_strlen(const char *str);
-void	ft_putnbr_base(int nbr, char *base);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-
-
-#endif
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}

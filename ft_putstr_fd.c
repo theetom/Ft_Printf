@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 15:25:05 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/09 15:25:07 by toferrei         ###   ########.fr       */
+/*   Created: 2024/04/26 12:44:55 by toferrei          #+#    #+#             */
+/*   Updated: 2024/05/09 11:06:05 by toferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <string.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-
-int		ft_printf(const char *str, ...);
-size_t	ft_strlen(const char *str);
-void	ft_putnbr_base(int nbr, char *base);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-
-
-#endif
+void	ft_putstr_fd(char *s, int fd)
+{
+	while (*s)
+		ft_putchar_fd(*s++, fd);
+}
