@@ -6,7 +6,7 @@
 /*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:25:18 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/10 19:11:17 by toferrei         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:14:54 by toferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,6 @@ int	ft_printf(const char *str, ...)
 
 /* int	main(void)
 {
-	void *ptr1;
-	void *ptr2;
-	ptr1 = (void)LONG_MAX - (void)1;
-	ptr2 = (void)LONG_MIN + (void)1;
-	
-	printf("\n%d\n\n", ft_printf(" %p %p ", ptr1, ptr2));
-	printf("\n%d\n", printf(" %p %p ", ptr1, ptr2));
-
+	printf("\n%d\n\n", ft_printf(" %p %p ", NULL, NULL));
+	printf("\n%d\n", printf(" %p %p ", NULL, NULL));
 } */
