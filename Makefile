@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: etom <etom@student.42.fr>                  +#+  +:+       +#+         #
+#    By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/09 14:40:27 by toferrei          #+#    #+#              #
-#    Updated: 2024/05/10 00:09:15 by etom             ###   ########.fr        #
+#    Updated: 2024/05/10 18:23:48 by toferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@ SOURCES = \
 	ft_putchar_fd_pf.c\
 	ft_putnbr_base_pf.c\
 	ft_putstr_fd_pf.c\
-	ft_strlen_pf.c
+	ft_strlen_pf.c\
+	ft_putnbr_base_u_pf.c\
+	prt_p.c
+	
 	
 OBJECTS = $(SOURCES:.c=.o)
 

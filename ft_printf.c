@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etom <etom@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:25:18 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/10 00:53:30 by etom             ###   ########.fr       */
+/*   Updated: 2024/05/10 19:11:17 by toferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,37 @@ pritn string char by char untill
 
 
 */
-#include "printf.h"
+#include "ft_printf.h"
 
-int funcao_2 (va_list lst_arg, int prt)
+int	funcao_2(va_list lst_arg, int prt)
 {
 	size_t	x;
 
 	x = 0;
 	if (prt == 'c')
-		ft_putchar_fd_pf(va_arg(lst_arg, int), 1);
+		x += ft_putchar_fd_pf(va_arg(lst_arg, int), 1);
 	if (prt == 'i' || prt == 'd')
-		ft_putnbr_base_pf(va_arg(lst_arg, int), "0123456789");
+		x += ft_putnbr_base_pf(va_arg(lst_arg, int), "0123456789");
 	if (prt == 's')
-		ft_putstr_fd_pf(va_arg(lst_arg, char *), 1);
-	if (prt == 'p')
-	
+		x += ft_putstr_fd_pf(va_arg(lst_arg, char *), 1);
 	if (prt == 'u')
-
+		x += ft_putnbr_base_u_pf(va_arg(lst_arg, unsigned long), "0123456789");
+	if (prt == 'p')
+		x += prt_p(va_arg(lst_arg, unsigned long));
 	if (prt == 'x')
-
+		x += ft_putnbr_base_u_pf(va_arg(lst_arg, unsigned long),
+				"0123456789abcdef");
 	if (prt == 'X')
-
+		x += ft_putnbr_base_u_pf(va_arg(lst_arg, unsigned long),
+				"0123456789ABCDEF");
 	if (prt == '%')
-
+		x += ft_putchar_fd_pf('%', 1);
 	return (x);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list lst_arg;
+	va_list	lst_arg;
 	size_t	count;
 
 	count = 0;
@@ -74,10 +76,14 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-int	main(void)
+/* int	main(void)
 {
-	int	x;
-	x = ft_printf("Vamos tentar escrever isso: %d", 123456);
-	return (x);
+	void *ptr1;
+	void *ptr2;
+	ptr1 = (void)LONG_MAX - (void)1;
+	ptr2 = (void)LONG_MIN + (void)1;
+	
+	printf("\n%d\n\n", ft_printf(" %p %p ", ptr1, ptr2));
+	printf("\n%d\n", printf(" %p %p ", ptr1, ptr2));
 
-}
+} */

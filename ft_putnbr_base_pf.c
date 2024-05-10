@@ -3,54 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base_pf.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etom <etom@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:51:04 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/10 00:10:10 by etom             ###   ########.fr       */
+/*   Updated: 2024/05/10 19:10:31 by toferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_invalid(char *str)
+size_t	ft_putnbr_base_pf(long nb, char *base)
 {
-	int	i;
-	int	j;
+	long	b;
+	size_t	x;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		j = i + 1;
-		while (str[j] != '\0')
-		{
-			if (str[i] == str[j] || str[j] == '+' || str[j] == '-')
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-void	ft_putnbr_base_pf(int nbr, char *base)
-{
-	int		b;
-	long	nb;
-
-	nb = nbr;
+	x = 0;
 	b = ft_strlen_pf(base);
-	if (ft_invalid (base) == 1 || b < 1)
-		return ;
 	if (nb < 0)
 	{
-		write(1, "-", 1);
+		x += write(1, "-", 1);
 		nb = -nb;
 	}
 	if (nb > b - 1)
-	{
-		ft_putnbr_base_pf(nb / b, base);
-		ft_putnbr_base_pf(nb % b, base);
-	}
-	else
-		write(1, &base[nb], 1);
+		x += ft_putnbr_base_pf(nb / b, base);
+	x += write(1, &base[nb % b], 1);
+	return (x);
 }
