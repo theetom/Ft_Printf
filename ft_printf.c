@@ -6,7 +6,7 @@
 /*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:25:18 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/10 19:14:54 by toferrei         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:24:59 by toferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,24 @@ int	funcao_2(va_list lst_arg, int prt)
 	x = 0;
 	if (prt == 'c')
 		x += ft_putchar_fd_pf(va_arg(lst_arg, int), 1);
-	if (prt == 'i' || prt == 'd')
+	else if (prt == 'i' || prt == 'd')
 		x += ft_putnbr_base_pf(va_arg(lst_arg, int), "0123456789");
-	if (prt == 's')
+	else if (prt == 's')
 		x += ft_putstr_fd_pf(va_arg(lst_arg, char *), 1);
-	if (prt == 'u')
+	else if (prt == 'u')
 		x += ft_putnbr_base_u_pf(va_arg(lst_arg, unsigned long), "0123456789");
-	if (prt == 'p')
+	else if (prt == 'p')
 		x += prt_p(va_arg(lst_arg, unsigned long));
-	if (prt == 'x')
+	else if (prt == 'x')
 		x += ft_putnbr_base_u_pf(va_arg(lst_arg, unsigned long),
 				"0123456789abcdef");
-	if (prt == 'X')
+	else if (prt == 'X')
 		x += ft_putnbr_base_u_pf(va_arg(lst_arg, unsigned long),
 				"0123456789ABCDEF");
-	if (prt == '%')
+	else if (prt == '%')
 		x += ft_putchar_fd_pf('%', 1);
+	else
+		return(ft_putchar_fd_pf('%', 1) + ft_putchar_fd_pf(prt, 1));
 	return (x);
 }
 
@@ -60,6 +62,8 @@ int	ft_printf(const char *str, ...)
 	size_t	count;
 
 	count = 0;
+	if (!str)
+		return (-1);
 	va_start(lst_arg, str);
 	while (*str)
 	{
@@ -76,8 +80,8 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-/* int	main(void)
+int	main(void)
 {
-	printf("\n%d\n\n", ft_printf(" %p %p ", NULL, NULL));
-	printf("\n%d\n", printf(" %p %p ", NULL, NULL));
-} */
+	printf("\n%d\n\n", ft_printf("%b", 0));
+	// printf("\n%d\n", printf(" %a %v ", 0, 0));
+}
