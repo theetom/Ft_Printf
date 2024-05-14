@@ -6,7 +6,7 @@
 /*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:25:18 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/13 17:24:59 by toferrei         ###   ########.fr       */
+/*   Updated: 2024/05/13 19:04:58 by toferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,13 @@ int	main(void)
 {
 	printf("\n%d\n\n", ft_printf("%b", 0));
 	// printf("\n%d\n", printf(" %a %v ", 0, 0));
+}
+int ft_strlen_pf(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
