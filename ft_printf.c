@@ -6,7 +6,7 @@
 /*   By: toferrei <toferrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 15:25:18 by toferrei          #+#    #+#             */
-/*   Updated: 2024/05/13 19:04:58 by toferrei         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:28:04 by toferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	funcao_2(va_list lst_arg, int prt)
 	else if (prt == '%')
 		x += ft_putchar_fd_pf('%', 1);
 	else
-		return(ft_putchar_fd_pf('%', 1) + ft_putchar_fd_pf(prt, 1));
+		return (ft_putchar_fd_pf('%', 1) + ft_putchar_fd_pf(prt, 1));
 	return (x);
 }
 
@@ -80,17 +80,8 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	printf("\n%d\n\n", ft_printf("%b", 0));
-	// printf("\n%d\n", printf(" %a %v ", 0, 0));
-}
-int ft_strlen_pf(const char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+	printf("\n%d\n", printf(" %a %v ", 0, 0));
+}*/
